@@ -1,0 +1,19 @@
+<section data-ng-controller="NewmodulesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Newmodules</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="newmodule in newmodules" data-ng-href="#!/newmodules/{{newmodule._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="newmodule.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="newmodule.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="newmodule.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!newmodules.$resolved || newmodules.length">
+    	No Newmodules yet, why don't you <a href="/#!/newmodules/create">create one</a>?
+    </div>
+</section>
